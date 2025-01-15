@@ -290,6 +290,8 @@ function isElementInViewport(el) {
                                     <li><a href="{{ url('/about') }}" style="color:#fff;">About</a></li>
                                     <li><a href="{{ url('/contact') }}" style="color:#fff;">Contact</a></li>
                                     <li><a href="{{ url('/faq') }}" style="color:#fff;">FAQ</a></li>
+                                    <li><a href="{{ url('/company-license') }}" style="color:#fff;">License & Registration</a>
+                                    </li>
                                 </ul>
                                 <div class="uk-navbar-item uk-visible@m in-optional-nav">
                                     <div>

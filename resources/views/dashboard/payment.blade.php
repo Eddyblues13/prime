@@ -67,118 +67,45 @@
         <!-- START: Card Data-->
         <div class="row">
 
-            <!-- Bitcoin Wallet Card -->
+            @foreach ($walletDetails as $wallet)
             <div class="col-12 col-lg-6 col-xl-4 mt-3">
                 <div class="card text-auto bg-default">
-                    <div class="card-header">
-                        <center><strong>BITCOIN WALLET (Bitcoin-Network)</strong></center>
+                    <div class="card-header text-center">
+                        <strong>{{ strtoupper($wallet->type) }} @if($wallet->network) ({{ $wallet->network }}) @endif</strong>
                     </div>
                     <div class="card-body">
-                        ADDRESS:<span class="float-right badge">1PVpfMtwqQtWDWE7umYTfJb2JtohSPpfQw</span>
-                        <hr>
-                        <p class="card-text">
+                        @if($wallet->type !== 'Bank')
+                            ADDRESS: <span class="float-right badge">{{ $wallet->address }}</span>
+                            @if($wallet->xrp_tag)
+                                <hr>
+                                XRP TAG: <span class="float-right badge">{{ $wallet->xrp_tag }}</span>
+                            @endif
+                            <hr>
                             <center class="mb-3">
-                                <a href="bitcoin:1PVpfMtwqQtWDWE7umYTfJb2JtohSPpfQw"
+                                <a href="{{ strtolower($wallet->type) }}:{{ $wallet->address }}"
                                     class="btn btn-secondary btn-lg mb-20"
-                                    style="font-size: 20px; font-weight: bold;">Pay Using BTC Wallet App</a>
+                                    style="font-size: 20px; font-weight: bold;">
+                                    {{ $wallet->type === 'Tether' ? 'Copy Wallet Address' : 'Pay Using ' . strtoupper($wallet->type) . ' Wallet App' }}
+                                </a>
                             </center>
-                        </p>
+                        @else
+                            BANK NAME: <span class="float-right badge">{{ $wallet->bank_name }}</span><br>
+                            <hr>
+                            ACCOUNT HOLDER: <span class="float-right badge">{{ $wallet->account_holder }}</span><br>
+                            <hr>
+                            ACCOUNT NUMBER: <span class="float-right badge">{{ $wallet->account_number }}</span><br>
+                            ACCOUNT TYPE: <span class="float-right badge">{{ $wallet->account_type }}</span><br>
+                            <hr>
+                            BRANCH NAME: <span class="float-right badge">{{ $wallet->branch_name }}</span><br>
+                            <hr>
+                            BRANCH CODE: <span class="float-right badge">{{ $wallet->branch_code }}</span><br>
+                            <hr>
+                            SWIFT CODE: <span class="float-right badge">{{ $wallet->swift_code }}</span>
+                        @endif
                     </div>
                 </div>
             </div>
-
-            <!-- Bitcash Wallet Card -->
-            <div class="col-12 col-lg-6 col-xl-4 mt-3">
-                <div class="card text-auto bg-default">
-                    <div class="card-header">
-                        <center><strong>ETH(Erc20) WALLET</strong></center>
-                    </div>
-                    <div class="card-body">
-                        ADDRESS:<span class="float-right badge">0x5664e5b71ac6da8f9040f098bd6c0afa46a9dbdc</span>
-                        <hr>
-                        <p class="card-text">
-                            <center class="mb-3">
-                                <a href="ethereum:0x5664e5b71ac6da8f9040f098bd6c0afa46a9dbdc"
-                                    class="btn btn-secondary btn-lg mb-20"
-                                    style="font-size: 20px; font-weight: bold;">Pay Using Bitcash Wallet App</a>
-                            </center>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tether (USDT) Wallet Card -->
-            <div class="col-12 col-lg-6 col-xl-4 mt-3">
-                <div class="card text-auto bg-default">
-                    <div class="card-header">
-                        <center><strong>TETHER (USDT) WALLET (USDT-TRC 20 Network)</strong></center>
-                    </div>
-                    <div class="card-body">
-                        ADDRESS:<span class="float-right badge">TWZ5EERKYS1h2d6U7z4fj1F7D4FnppojeW</span>
-                        <hr>
-                        <p class="card-text">
-                            <center class="mb-3">
-                                <a href="tether:TWZ5EERKYS1h2d6U7z4fj1F7D4FnppojeW"
-                                    class="btn btn-secondary btn-lg mb-20"
-                                    style="font-size: 20px; font-weight: bold;">Copy Wallet  Address</a>
-                            </center>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            
-               
-            
-            <!-- XRP Wallet Card -->
-<div class="col-12 col-lg-6 col-xl-4 mt-3">
-    <div class="card text-auto bg-default">
-        <div class="card-header">
-            <center><strong>XRP (Ripple) Wallet</strong></center>
-        </div>
-        <div class="card-body">
-            <p class="card-text">
-                ADDRESS: <span class="float-right badge">rJn2zAPdFA193sixJwuFixRkYDUtx3apQh</span>
-                <hr>
-                XRP TAG: <span class="float-right badge">500437859</span>
-                <hr>
-                <center class="mb-3">
-                    <a href="xrp:rJn2zAPdFA193sixJwuFixRkYDUtx3apQh"
-                        class="btn btn-secondary btn-lg mb-20"
-                        style="font-size: 20px; font-weight: bold;">
-                        Copy Wallet  Address
-                    </a>
-                </center>
-            </p>
-        </div>
-    </div>
-</div>
-
-
-            <!-- Bank Details Card -->
-            <div class="col-12 col-lg-6 col-xl-4 mt-3">
-                <div class="card text-auto bg-default">
-                    <div class="card-header">
-                        <center><strong>BANK DETAILS</strong></center>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            BANK NAME: <span class="float-right badge">FIRST NATIONAL BANK</span><br>
-                            <hr>
-                            ACCOUNT HOLDER:<span class="float-right badge">MORRIS MASIMBA CHAKANYUK</span><br>
-                            <hr>
-                            ACCOUNT NUMBER:<span class="float-right badge">62268885682 </span>
-                            Account Type: <span class="float-right badge">SAVINGS</span><br>
-                            <hr>
-                            BRANCH NAME:<span class="float-right badge">Boksburg</span><br>
-                            <hr>
-                            Universal Branch Code:<span class="float-right badge">250655</span><br>
-                            <hr>
-                           SWIFT Code:<span class="float-right badge">FIRNZAJJ</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        @endforeach
 
             <!-- Upload Proof of Payment Card -->
             <div class="col-12 mt-3">

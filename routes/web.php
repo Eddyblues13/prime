@@ -11,12 +11,14 @@ use App\Http\Controllers\Admin\TradeController;
 use App\Http\Controllers\Admin\WalletController;
 use App\Http\Controllers\Admin\DepositController;
 use App\Http\Controllers\Admin\BrandingController;
+use App\Http\Controllers\PaymentSettingController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\Admin\WithdrawalController;
 use App\Http\Controllers\Admin\SmtpSettingController;
 use App\Http\Controllers\Admin\TradingPlanController;
 use App\Http\Controllers\User\VerificationController;
+use App\Http\Controllers\Admin\WalletDetailController;
 
 
 Route::get('/', function () {
@@ -45,6 +47,10 @@ Route::get('/contact', function () {
 
 Route::get('/plan', function () {
     return view('home.plan');
+});
+
+Route::get('/company-license', function () {
+    return view('home.company-license');
 });
 
 Auth::routes();
@@ -239,5 +245,6 @@ Route::prefix('admin')->group(function () {
         Route::get('delete-withdrawal/{id}', [WithdrawalController::class, 'deleteWithdrawal'])->name('delete.withdrawal');
 
         Route::resource('plans', PlanController::class);
+        Route::resource('wallets', WalletDetailController::class);
     });
 });

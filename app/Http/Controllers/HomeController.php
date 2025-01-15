@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Log;
 use App\Models\Loan;
+use App\Models\User;
 use App\Models\Trade;
 use App\Models\Profit;
 use App\Models\Wallet;
@@ -12,25 +13,25 @@ use App\Models\Document;
 use App\Models\Referral;
 use App\Models\Refferal;
 use App\Models\Transfer;
+use App\Mail\welcomeEmail;
 use App\Models\Investment;
 use App\Models\Withdrawal;
 use App\Models\TradingPlan;
 use App\Models\TradeHistory;
+use App\Models\WalletDetail;
 use Illuminate\Http\Request;
 use App\Models\AccountBalance;
 use App\Models\AccountDetails;
 use App\Models\UserInvestment;
+use App\Mail\VerificationEmail;
 use App\Models\InvestmentPackage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use App\Mail\welcomeEmail;
-use App\Mail\VerificationEmail;
-use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -49,7 +50,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-     
+
     private function getConversionRate($userCurrency)
     {
         $url = 'https://api.exchangerate-api.com/v4/latest/USD';
@@ -62,79 +63,79 @@ class HomeController extends Controller
         $data = $response->json();
         return $data['rates'][$userCurrency] ?? 1; // Fallback to 1 if the currency rate is not found
     }
-     
-        public function verifyAccount()
+
+    public function verifyAccount()
     {
         return view('auth.index');
     }
-     
-        public function emailVerify(Request $request)
+
+    public function emailVerify(Request $request)
     {
-        
-                    $userId = Auth::id();
 
-            // Retrieve all deposits for the user 
-            $data['deposits'] = Deposit::where('user_id', $userId)->get();
+        $userId = Auth::id();
 
-            // Sum of pending deposits
-            $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
-                ->where('status', 0) // Assuming '0' represents 'pending'
-                ->sum('amount');
+        // Retrieve all deposits for the user 
+        $data['deposits'] = Deposit::where('user_id', $userId)->get();
 
-            // Sum of approved deposits
-            $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
-                ->where('status', 1) // Assuming '1' represents 'approved'
-                ->sum('amount');
+        // Sum of pending deposits
+        $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
+            ->where('status', 0) // Assuming '0' represents 'pending'
+            ->sum('amount');
 
-            // Retrieve all withdrawals for the user
-            $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
+        // Sum of approved deposits
+        $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
+            ->where('status', 1) // Assuming '1' represents 'approved'
+            ->sum('amount');
 
-            // Sum of pending withdrawals
-            $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
-                ->where('status', 0) // Assuming '0' represents 'pending'
-                ->sum('amount');
+        // Retrieve all withdrawals for the user
+        $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
 
-            // Sum of approved withdrawals
-            $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
-                ->where('status', 1) // Assuming '1' represents 'approved'
-                ->sum('amount');
+        // Sum of pending withdrawals
+        $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+            ->where('status', 0) // Assuming '0' represents 'pending'
+            ->sum('amount');
 
-            // Sum of profits
-            $data['profit_sum'] = Profit::where('user_id', $userId)
-                ->sum('amount');
+        // Sum of approved withdrawals
+        $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+            ->where('status', 1) // Assuming '1' represents 'approved'
+            ->sum('amount');
 
-            // Sum of investments
-            $data['investment_sum'] = Investment::where('user_id', $userId)
-                ->sum('amount');
+        // Sum of profits
+        $data['profit_sum'] = Profit::where('user_id', $userId)
+            ->sum('amount');
 
-            // Sum of referral earnings
-            $data['referral_sum'] = Referral::where('user_id', $userId)
-                ->sum('amount');
+        // Sum of investments
+        $data['investment_sum'] = Investment::where('user_id', $userId)
+            ->sum('amount');
 
-            // Total sum of all values
-            $data['total_sum'] =  $data['approved_deposits_sum']
-                - $data['approved_withdrawals_sum']
-                + $data['profit_sum']
-                - $data['investment_sum']
-                + $data['referral_sum'];
-            
-            // User's currency and conversion
-            $userCurrency = Auth::user()->currency;
-            $conversionRate = $this->getConversionRate($userCurrency);
+        // Sum of referral earnings
+        $data['referral_sum'] = Referral::where('user_id', $userId)
+            ->sum('amount');
 
-            $data['amountsInUSD'] = [
-                'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
-                'profit' => $data['profit_sum'] / $conversionRate,
-                'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
-                'referral' => $data['referral_sum'] / $conversionRate,
-                'deposit' => $data['approved_deposits_sum'] / $conversionRate,
-                'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
-            ];
+        // Total sum of all values
+        $data['total_sum'] =  $data['approved_deposits_sum']
+            - $data['approved_withdrawals_sum']
+            + $data['profit_sum']
+            - $data['investment_sum']
+            + $data['referral_sum'];
 
-            $data['conversionRate'] = $conversionRate;
-            $data['userCurrency'] = $userCurrency;
-            
-        
+        // User's currency and conversion
+        $userCurrency = Auth::user()->currency;
+        $conversionRate = $this->getConversionRate($userCurrency);
+
+        $data['amountsInUSD'] = [
+            'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
+            'profit' => $data['profit_sum'] / $conversionRate,
+            'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
+            'referral' => $data['referral_sum'] / $conversionRate,
+            'deposit' => $data['approved_deposits_sum'] / $conversionRate,
+            'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
+        ];
+
+        $data['conversionRate'] = $conversionRate;
+        $data['userCurrency'] = $userCurrency;
+
+
         $first_token = $request->input('digit');
         $second_token = $request->input('digit2');
         $third_token = $request->input('digit3');
@@ -158,16 +159,16 @@ class HomeController extends Controller
             ];
 
 
-           // Prepare the email content
-        $wMessage = "
+            // Prepare the email content
+            $wMessage = "
             <p>Hello {$user->name},</p>
             <p>We are so happy to have you on board.</p>
             <p>Your email: <strong>{$user->email}</strong></p>
             <p>Your password: <strong>*********</strong></p>
         ";
-        
-        Mail::to($user->email)->send(new welcomeEmail($wMessage));
-      $userId = Auth::id();
+
+            Mail::to($user->email)->send(new welcomeEmail($wMessage));
+            $userId = Auth::id();
 
             // Retrieve all deposits for the user 
             $data['deposits'] = Deposit::where('user_id', $userId)->get();
@@ -213,7 +214,7 @@ class HomeController extends Controller
                 + $data['profit_sum']
                 - $data['investment_sum']
                 + $data['referral_sum'];
-            
+
             // User's currency and conversion
             $userCurrency = Auth::user()->currency;
             $conversionRate = $this->getConversionRate($userCurrency);
@@ -268,81 +269,81 @@ class HomeController extends Controller
     }
 
 
-public function index()
-{
-    if (Auth::id()) {
-        if (Auth::user()->is_activated == '1') {
-            $userId = Auth::id();
+    public function index()
+    {
+        if (Auth::id()) {
+            if (Auth::user()->is_activated == '1') {
+                $userId = Auth::id();
 
-            // Retrieve all deposits for the user 
-            $data['deposits'] = Deposit::where('user_id', $userId)->get();
+                // Retrieve all deposits for the user 
+                $data['deposits'] = Deposit::where('user_id', $userId)->get();
 
-            // Sum of pending deposits
-            $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
-                ->where('status', 0) // Assuming '0' represents 'pending'
-                ->sum('amount');
+                // Sum of pending deposits
+                $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
+                    ->where('status', 0) // Assuming '0' represents 'pending'
+                    ->sum('amount');
 
-            // Sum of approved deposits
-            $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
-                ->where('status', 1) // Assuming '1' represents 'approved'
-                ->sum('amount');
+                // Sum of approved deposits
+                $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
+                    ->where('status', 1) // Assuming '1' represents 'approved'
+                    ->sum('amount');
 
-            // Retrieve all withdrawals for the user
-            $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
+                // Retrieve all withdrawals for the user
+                $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
 
-            // Sum of pending withdrawals
-            $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
-                ->where('status', 0) // Assuming '0' represents 'pending'
-                ->sum('amount');
+                // Sum of pending withdrawals
+                $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+                    ->where('status', 0) // Assuming '0' represents 'pending'
+                    ->sum('amount');
 
-            // Sum of approved withdrawals
-            $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
-                ->where('status', 1) // Assuming '1' represents 'approved'
-                ->sum('amount');
+                // Sum of approved withdrawals
+                $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+                    ->where('status', 1) // Assuming '1' represents 'approved'
+                    ->sum('amount');
 
-            // Sum of profits
-            $data['profit_sum'] = Profit::where('user_id', $userId)
-                ->sum('amount');
+                // Sum of profits
+                $data['profit_sum'] = Profit::where('user_id', $userId)
+                    ->sum('amount');
 
-            // Sum of investments
-            $data['investment_sum'] = Investment::where('user_id', $userId)
-                ->sum('amount');
+                // Sum of investments
+                $data['investment_sum'] = Investment::where('user_id', $userId)
+                    ->sum('amount');
 
-            // Sum of referral earnings
-            $data['referral_sum'] = Referral::where('user_id', $userId)
-                ->sum('amount');
+                // Sum of referral earnings
+                $data['referral_sum'] = Referral::where('user_id', $userId)
+                    ->sum('amount');
 
-            // Total sum of all values
-            $data['total_sum'] =  $data['approved_deposits_sum']
-                - $data['approved_withdrawals_sum']
-                + $data['profit_sum']
-                - $data['investment_sum']
-                + $data['referral_sum'];
-            
-            // User's currency and conversion
-            $userCurrency = Auth::user()->currency;
-            $conversionRate = $this->getConversionRate($userCurrency);
+                // Total sum of all values
+                $data['total_sum'] =  $data['approved_deposits_sum']
+                    - $data['approved_withdrawals_sum']
+                    + $data['profit_sum']
+                    - $data['investment_sum']
+                    + $data['referral_sum'];
 
-            $data['amountsInUSD'] = [
-                'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
-                'profit' => $data['profit_sum'] / $conversionRate,
-                'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
-                'referral' => $data['referral_sum'] / $conversionRate,
-                'deposit' => $data['approved_deposits_sum'] / $conversionRate,
-                'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
-            ];
+                // User's currency and conversion
+                $userCurrency = Auth::user()->currency;
+                $conversionRate = $this->getConversionRate($userCurrency);
 
-            $data['conversionRate'] = $conversionRate;
-            $data['userCurrency'] = $userCurrency;
+                $data['amountsInUSD'] = [
+                    'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
+                    'profit' => $data['profit_sum'] / $conversionRate,
+                    'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
+                    'referral' => $data['referral_sum'] / $conversionRate,
+                    'deposit' => $data['approved_deposits_sum'] / $conversionRate,
+                    'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
+                ];
 
-            return view('dashboard.home', $data);
+                $data['conversionRate'] = $conversionRate;
+                $data['userCurrency'] = $userCurrency;
+
+                return view('dashboard.home', $data);
+            } else {
+                return redirect("verify/" . Auth::user()->id);
+            }
         } else {
-            return redirect("verify/" . Auth::user()->id);
+            return redirect()->back();
         }
-    } else {
-        return redirect()->back();
     }
-}
 
 
     public function referral()
@@ -354,69 +355,69 @@ public function index()
 
     public function profile()
     {
-            $userId = Auth::id();
+        $userId = Auth::id();
 
-            // Retrieve all deposits for the user 
-            $data['deposits'] = Deposit::where('user_id', $userId)->get();
+        // Retrieve all deposits for the user 
+        $data['deposits'] = Deposit::where('user_id', $userId)->get();
 
-            // Sum of pending deposits
-            $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
-                ->where('status', 0) // Assuming '0' represents 'pending'
-                ->sum('amount');
+        // Sum of pending deposits
+        $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
+            ->where('status', 0) // Assuming '0' represents 'pending'
+            ->sum('amount');
 
-            // Sum of approved deposits
-            $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
-                ->where('status', 1) // Assuming '1' represents 'approved'
-                ->sum('amount');
+        // Sum of approved deposits
+        $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
+            ->where('status', 1) // Assuming '1' represents 'approved'
+            ->sum('amount');
 
-            // Retrieve all withdrawals for the user
-            $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
+        // Retrieve all withdrawals for the user
+        $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
 
-            // Sum of pending withdrawals
-            $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
-                ->where('status', 0) // Assuming '0' represents 'pending'
-                ->sum('amount');
+        // Sum of pending withdrawals
+        $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+            ->where('status', 0) // Assuming '0' represents 'pending'
+            ->sum('amount');
 
-            // Sum of approved withdrawals
-            $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
-                ->where('status', 1) // Assuming '1' represents 'approved'
-                ->sum('amount');
+        // Sum of approved withdrawals
+        $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+            ->where('status', 1) // Assuming '1' represents 'approved'
+            ->sum('amount');
 
-            // Sum of profits
-            $data['profit_sum'] = Profit::where('user_id', $userId)
-                ->sum('amount');
+        // Sum of profits
+        $data['profit_sum'] = Profit::where('user_id', $userId)
+            ->sum('amount');
 
-            // Sum of investments
-            $data['investment_sum'] = Investment::where('user_id', $userId)
-                ->sum('amount');
+        // Sum of investments
+        $data['investment_sum'] = Investment::where('user_id', $userId)
+            ->sum('amount');
 
-            // Sum of referral earnings
-            $data['referral_sum'] = Referral::where('user_id', $userId)
-                ->sum('amount');
+        // Sum of referral earnings
+        $data['referral_sum'] = Referral::where('user_id', $userId)
+            ->sum('amount');
 
-            // Total sum of all values
-            $data['total_sum'] =  $data['approved_deposits_sum']
-                - $data['approved_withdrawals_sum']
-                + $data['profit_sum']
-                - $data['investment_sum']
-                + $data['referral_sum'];
-            
-            // User's currency and conversion
-            $userCurrency = Auth::user()->currency;
-            $conversionRate = $this->getConversionRate($userCurrency);
+        // Total sum of all values
+        $data['total_sum'] =  $data['approved_deposits_sum']
+            - $data['approved_withdrawals_sum']
+            + $data['profit_sum']
+            - $data['investment_sum']
+            + $data['referral_sum'];
 
-            $data['amountsInUSD'] = [
-                'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
-                'profit' => $data['profit_sum'] / $conversionRate,
-                'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
-                'referral' => $data['referral_sum'] / $conversionRate,
-                'deposit' => $data['approved_deposits_sum'] / $conversionRate,
-                'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
-            ];
+        // User's currency and conversion
+        $userCurrency = Auth::user()->currency;
+        $conversionRate = $this->getConversionRate($userCurrency);
 
-            $data['conversionRate'] = $conversionRate;
-            $data['userCurrency'] = $userCurrency;
-            
+        $data['amountsInUSD'] = [
+            'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
+            'profit' => $data['profit_sum'] / $conversionRate,
+            'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
+            'referral' => $data['referral_sum'] / $conversionRate,
+            'deposit' => $data['approved_deposits_sum'] / $conversionRate,
+            'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
+        ];
+
+        $data['conversionRate'] = $conversionRate;
+        $data['userCurrency'] = $userCurrency;
+
         return view('dashboard.profile', $data);
     }
 
@@ -710,11 +711,12 @@ public function index()
 
         // Assuming Wallet model stores details about payment methods (like BTC, ETH, etc.)
         // Use where to search for a wallet by its payment mode (code or type)
-        $wallet = Wallet::first();
+
+        $walletDetails = WalletDetail::all();
 
         // Pass all necessary data to the view
         return view('dashboard.payment', [
-            'wallet' => $wallet, // Wallet details
+            'walletDetails' => $walletDetails, // Wallet details
             'amount' => $validatedData['amount'], // Amount
 
         ]);

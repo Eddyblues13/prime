@@ -111,7 +111,7 @@
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
                     <a href="{{route('admin.home')}}" class="logo" style="font-size: 27px; color:#fff;">
-                        VPS
+                        Prime Edge
                     </a>
                     <button class="ml-auto navbar-toggler sidenav-toggler" type="button" data-toggle="collapse"
                         data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -300,6 +300,12 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('wallets.index') }}">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <p>Payment Settings</p>
+                                </a>
                             </li>
 
                             <li class="nav-item          ">
