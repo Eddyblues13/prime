@@ -79,6 +79,20 @@
 
             <div class="navbar-right ml-auto">
                 <ul class="ml-auto p-0 m-0 list-unstyled d-flex">
+                    @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+
+                    @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+
 
                     @if(Auth::user()->user_status != 1)
                     <li class="mr-1 d-inline-block my-auto">
@@ -99,7 +113,7 @@
                             <a>
                                 <font color="green"></font>
                             </a><br>
-                            <a href="#" data-toggle="modal" data-target="#verifyModal">
+                            <a href="#" data-toggle="modal" data-target="">
                                 <font color="green">VERIFIED</font>
                             </a>
                         </h6>
@@ -261,7 +275,7 @@
     <script type="text/javascript">
         (function() {
                 var options = {
-                    whatsapp: "+14159422108", // WhatsApp number
+                    whatsapp: "+16614806327", // WhatsApp number
                     call_to_action: "Reach-out on Whatsapp", // Call to action
                     position: "left", // Position may be 'right' or 'left'
                 };

@@ -124,8 +124,8 @@ class AdminController extends Controller
     public function acceptKyc($id)
     {
 
-        $user  = User::where('id', $id)->first();
-        $user->kyc_status = 1;
+        $user  = VerificationDocument::where('id', $id)->first();
+        $user->status = 1;
         $user->save();
         return back()->with('message', 'Kyc Approved Successfully');
     }
@@ -134,8 +134,8 @@ class AdminController extends Controller
     public function rejectKyc($id)
     {
 
-        $user  = User::where('id', $id)->first();
-        $user->kyc_status = 0;
+        $user  = VerificationDocument::where('id', $id)->first();
+        $user->status = 0;
         $user->save();
         return back()->with('message', 'Kyc Rejected Successfully');;
     }
@@ -268,7 +268,7 @@ class AdminController extends Controller
     {
         $data['user'] = User::where('id', $userId)
             ->first();
-      
+
 
         if (!$data['user']) {
             abort(404, 'User not found');
@@ -317,23 +317,23 @@ class AdminController extends Controller
             + $data['profit_sum']
             - $data['investment_sum']
             + $data['referral_sum'];
-            
-            
-            // User's currency and conversion
-            $userCurrency =  $data['user']->currency;
-            $conversionRate = $this->getConversionRate($userCurrency);
 
-            $data['amountsInUSD'] = [
-                'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
-                'profit' => $data['profit_sum'] / $conversionRate,
-                'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
-                'referral' => $data['referral_sum'] / $conversionRate,
-                'deposit' => $data['approved_deposits_sum'] / $conversionRate,
-                'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
-            ];
 
-            $data['conversionRate'] = $conversionRate;
-            $data['userCurrency'] = $userCurrency;
+        // User's currency and conversion
+        $userCurrency =  $data['user']->currency;
+        $conversionRate = $this->getConversionRate($userCurrency);
+
+        $data['amountsInUSD'] = [
+            'balance' => $data['total_sum'] / $conversionRate, // Total balance in USD
+            'profit' => $data['profit_sum'] / $conversionRate,
+            'earning' => $data['total_sum'] / $conversionRate, // Assuming total earnings in USD
+            'referral' => $data['referral_sum'] / $conversionRate,
+            'deposit' => $data['approved_deposits_sum'] / $conversionRate,
+            'withdrawal' => $data['approved_withdrawals_sum'] / $conversionRate
+        ];
+
+        $data['conversionRate'] = $conversionRate;
+        $data['userCurrency'] = $userCurrency;
 
         return view('admin.user_data', $data);
     }
@@ -698,7 +698,7 @@ class AdminController extends Controller
 
             return back()->with('message', 'Referral Bonus Updated Successfully');
         }
-        
+
         if ($type === 'Deposit') {
             $transaction_id = strtoupper(uniqid('TXN')); // Example: TXN5F2E5C1B8D3A4
 
@@ -707,7 +707,7 @@ class AdminController extends Controller
             $deposit->user_id = $request['user_id'];
             $deposit->amount = ($transactionType === 'Credit') ? $request['amount'] : -$request['amount'];
             $deposit->payment_mode = $request['t_type'];
-             $deposit->status = 1;
+            $deposit->status = 1;
 
             $paymentMethodToWallet = [
                 'Bank' => 'BANK123456',

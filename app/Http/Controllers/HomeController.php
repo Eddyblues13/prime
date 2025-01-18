@@ -694,7 +694,7 @@ class HomeController extends Controller
     public function deposits()
     {
         $data['deposits'] = Deposit::where('user_id', Auth::id())->get();
-        $data['wallets'] = Wallet::all();
+        $data['wallets'] = WalletDetail::all();
 
         return view('dashboard.deposits', $data);
     }
@@ -748,7 +748,15 @@ class HomeController extends Controller
         // Handle the proof file upload if present
         if ($request->hasFile('proof')) {
             $file = $request->file('proof');
-            $filePath = $file->store('payment_proofs', 'public'); // Store the file in the 'payment_proofs' directory
+
+            // Create a unique filename with timestamp
+            $filename = time() . '_' . $file->getClientOriginalName();
+
+            // Move the file to the 'public/uploads/payment_proofs' directory
+            $file->move(public_path('uploads/payment_proofs'), $filename);
+
+            // Save the public URL to the database
+            $filePath = url('uploads/payment_proofs/' . $filename);
         }
 
         // Ensure the user is authenticated

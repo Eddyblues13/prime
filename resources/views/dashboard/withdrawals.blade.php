@@ -63,9 +63,9 @@
                         Bitcoin WITHDRAWAL
                     </div>
                     <div class="card-body">
-                        <p>MINIMUM: <span class="float-right">$50</span></p>
+                        <p>MINIMUM: <span class="float-right">$500</span></p>
                         <hr>
-                        <p>MAXIMUM: <span class="float-right">$100,000</span></p>
+                        <p>MAXIMUM: <span class="float-right">Unlimited</span></p>
                         <hr>
                         <p>CHARGES (VAT): <span class="float-right">$2</span></p>
                         <hr>
@@ -82,33 +82,33 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- XRP Withdrawal Card -->
-<div class="col-12 col-lg-6 col-xl-4 mt-3">
-    <div class="card text-auto bg-default">
-        <div class="card-header text-uppercase text-center">
-            XRP WITHDRAWAL
-        </div>
-        <div class="card-body">
-            <p>MINIMUM: <span class="float-right">$50</span></p>
-            <hr>
-            <p>MAXIMUM: <span class="float-right">$100,000</span></p>
-            <hr>
-            <p>CHARGES (VAT): <span class="float-right">$2</span></p>
-            <hr>
-            <p>CHARGES (%): <span class="float-right">3%</span></p>
-            <hr>
-            <p>DURATION: <span class="float-right">1-12 hours</span></p>
-            <hr>
-            <div class="text-center mb-3">
-                <button class="btn btn-secondary" data-toggle="modal" data-target="#withdrawalModal"
-                    data-payment-mode="XRP" data-method-id="20">
-                    <i class="fa fa-plus"></i> Request Withdrawal
-                </button>
+            <div class="col-12 col-lg-6 col-xl-4 mt-3">
+                <div class="card text-auto bg-default">
+                    <div class="card-header text-uppercase text-center">
+                        XRP WITHDRAWAL
+                    </div>
+                    <div class="card-body">
+                        <p>MINIMUM: <span class="float-right">$500</span></p>
+                        <hr>
+                        <p>MAXIMUM: <span class="float-right">Unlimited</span></p>
+                        <hr>
+                        <p>CHARGES (VAT): <span class="float-right">$2</span></p>
+                        <hr>
+                        <p>CHARGES (%): <span class="float-right">3%</span></p>
+                        <hr>
+                        <p>DURATION: <span class="float-right">1-12 hours</span></p>
+                        <hr>
+                        <div class="text-center mb-3">
+                            <button class="btn btn-secondary" data-toggle="modal" data-target="#withdrawalModal"
+                                data-payment-mode="XRP" data-method-id="20">
+                                <i class="fa fa-plus"></i> Request Withdrawal
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 
 
             <!-- Tether (USDT) Withdrawal Card -->
@@ -118,9 +118,9 @@
                         TETHER (USDT) WITHDRAWAL
                     </div>
                     <div class="card-body">
-                        <p>MINIMUM: <span class="float-right">$50</span></p>
+                        <p>MINIMUM: <span class="float-right">$500</span></p>
                         <hr>
-                        <p>MAXIMUM: <span class="float-right">$100,000</span></p>
+                        <p>MAXIMUM: <span class="float-right">Unlimited</span></p>
                         <hr>
                         <p>CHARGES (VAT): <span class="float-right">$2</span></p>
                         <hr>

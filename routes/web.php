@@ -84,7 +84,7 @@ Route::prefix('user')->middleware('user')->group(function () {
     // routes/web.php
     Route::get('/referrals', [HomeController::class, 'referral'])->name('referrals.index');
 
-    Route::get('/deposits', [HomeController::class, 'deposits'])->name('deposits');
+    Route::get('/deposit', [HomeController::class, 'deposits'])->name('deposits');
     Route::post('/deposits', [HomeController::class, 'handleDeposit'])->name('handle.deposit');
     Route::post('/payment', [HomeController::class, 'handlePayment'])->name('handle.payment');
 

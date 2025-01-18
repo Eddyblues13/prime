@@ -33,34 +33,47 @@
 									<th scope="row">{{ $kycUser->id }}</th>
 									<td>{{ $kycUser->name }}</td>
 									<td>{{ $kycUser->email }}</td>
-									@if($kycUser->kyc_status == '1')
+									@if($kycUser->status == '1')
 									<td>Verified</td>
-									@elseif($kycUser->kyc_status == '0')
+									@elseif($kycUser->status == '0')
 									<td>Not Verified</td>
-									@elseif($kycUser->kyc_status == '2')
+									@elseif($kycUser->status == '2')
 									<td>Declined</td>
 									@endif
 									<td>
+										<!-- Front ID Button -->
 										<a href="#" data-toggle="modal" data-target="#viewKycIdModal{{ $kycUser->id }}"
-											class="btn btn-light btn-sm">
+											class="btn btn-light btn-sm d-block mb-2">
 											<i class="fa fa-eye"></i> Front ID
 										</a>
+
+										<!-- Back ID Button -->
 										<a href="#" data-toggle="modal"
 											data-target="#viewKycbackIdModal{{ $kycUser->id }}"
-											class="btn btn-light btn-sm">
+											class="btn btn-light btn-sm d-block mb-2">
 											<i class="fa fa-eye"></i> Back ID
 										</a>
+
+										<!-- Passport Button -->
 										<a href="#" data-toggle="modal"
 											data-target="#viewKycPassportModal{{ $kycUser->id }}"
-											class="btn btn-light btn-sm">
+											class="btn btn-light btn-sm d-block mb-2">
 											<i class="fa fa-eye"></i> Passport
 										</a>
 
-										<a href="{{ route('admin.accept.kyc',$kycUser->id) }}"
-											class="btn btn-primary btn-sm">Accept</a>
-										<a href="{{ route('admin.reject.kyc',$kycUser->id) }}"
-											class="btn btn-danger btn-sm">Reject</a>
+										<!-- Accept Button -->
+										<a href="{{ route('admin.accept.kyc', $kycUser->id) }}"
+											class="btn btn-primary btn-sm d-block mb-2">
+											Accept
+										</a>
+
+										<!-- Reject Button -->
+										<a href="{{ route('admin.reject.kyc', $kycUser->id) }}"
+											class="btn btn-danger btn-sm d-block">
+											Reject
+										</a>
 									</td>
+
 								</tr>
 
 								<!-- View KYC ID Modal -->
@@ -73,8 +86,7 @@
 													data-dismiss="modal">&times;</button>
 											</div>
 											<div class="modal-body bg-dark">
-												<img src="{{ Storage::url($kycUser->id_front) }}" alt="ID Card"
-													class="img-fluid" />
+												<img src="{{ $kycUser->id_front }}" alt="ID Card" class="img-fluid" />
 											</div>
 										</div>
 									</div>
@@ -91,8 +103,7 @@
 													data-dismiss="modal">&times;</button>
 											</div>
 											<div class="modal-body bg-dark">
-												<img src="{{ Storage::url($kycUser->id_back) }}" alt="ID Card"
-													class="img-fluid" />
+												<img src="{{ $kycUser->id_back}}" alt="ID Card" class="img-fluid" />
 											</div>
 										</div>
 									</div>
@@ -109,7 +120,7 @@
 													data-dismiss="modal">&times;</button>
 											</div>
 											<div class="modal-body bg-dark">
-												<img src="{{ Storage::url($kycUser->passport) }}" alt="Passport Photo"
+												<img src="{{ $kycUser->passport }}" alt="Passport Photo"
 													class="img-fluid" />
 											</div>
 										</div>

@@ -43,8 +43,7 @@
 									<td>{{$dep->payment_mode}}</td>
 									<td>
 										@if($dep->proof)
-										<img src="{{ Storage::url($dep->proof) }}" alt="Payment Screenshot" width="100"
-											height="60">
+										<img src="{{ $dep->proof}}" alt="Payment Screenshot" width="100" height="60">
 										@else
 										<span>No Screenshot</span>
 										@endif
