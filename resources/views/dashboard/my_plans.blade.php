@@ -78,7 +78,7 @@
                             <input type="hidden" name="id" value="{{ $investment->id }}">
                             <center>
                                 @if($investment->status !== 'completed')
-                                <input type="submit" class="btn btn-primary" value="Update Plan">
+                                <button type="button" class="btn btn-secondary" disabled>Processing</button>
                                 @else
                                 <button type="button" class="btn btn-secondary" disabled>Completed</button>
                                 @endif
