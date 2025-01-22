@@ -237,7 +237,7 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{{route('manage.investment.plan')}}">
+                                <a href="{{ route('investment-packages.index') }}">
                                     <i class="fas fa-cubes " aria-hidden="true"></i>
                                     <p>Manage Investment Plans</p>
                                 </a>

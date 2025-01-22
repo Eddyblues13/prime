@@ -943,8 +943,66 @@ class HomeController extends Controller
 
     public function myPlans()
     {
-        return view('dashboard.my_plans');
+        $userId = Auth::id();
+
+        // Retrieve all deposits for the user 
+        $data['deposits'] = Deposit::where('user_id', $userId)->get();
+
+        // Sum of pending deposits
+        $data['pending_deposits_sum'] = Deposit::where('user_id', $userId)
+            ->where('status', 0) // Assuming '0' represents 'pending'
+            ->sum('amount');
+
+        // Sum of approved deposits
+        $data['approved_deposits_sum'] = Deposit::where('user_id', $userId)
+            ->where('status', 1) // Assuming '1' represents 'approved'
+            ->sum('amount');
+
+        // Retrieve all withdrawals for the user
+        $data['withdrawals'] = Withdrawal::where('user_id', $userId)->get();
+
+        // Sum of pending withdrawals
+        $data['pending_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+            ->where('status', 0) // Assuming '0' represents 'pending'
+            ->sum('amount');
+
+        // Sum of approved withdrawals
+        $data['approved_withdrawals_sum'] = Withdrawal::where('user_id', $userId)
+            ->where('status', 1) // Assuming '1' represents 'approved'
+            ->sum('amount');
+
+        // Sum of profits
+        $data['profit_sum'] = Profit::where('user_id', $userId)
+            ->sum('amount');
+
+        // Sum of investments
+        $data['investment_sum'] = Investment::where('user_id', $userId)
+            ->sum('amount');
+
+        // Sum of referral earnings
+        $data['referral_sum'] = Referral::where('user_id', $userId)
+            ->sum('amount');
+
+        // Total sum of all values
+        $data['total_sum'] =  $data['approved_deposits_sum']
+            - $data['approved_withdrawals_sum']
+            + $data['profit_sum']
+            - $data['investment_sum']
+            + $data['referral_sum'];
+
+        $user = Auth::user();
+
+        // Fetch user's investments with related investment package
+        // $data['investments'] = UserInvestment::with('investmentPackage')
+        //     ->where('user_id', $user->id)
+        //     ->orderBy('created_at', 'desc')
+        //     ->get();
+        $data['investments'] = Investment::where('user_id', $user->id)->get();
+
+
+        return view('dashboard.my_plans', $data);
     }
+
 
 
     // Update payment details

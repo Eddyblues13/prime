@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\SmtpSettingController;
 use App\Http\Controllers\Admin\TradingPlanController;
 use App\Http\Controllers\User\VerificationController;
 use App\Http\Controllers\Admin\WalletDetailController;
+use App\Http\Controllers\Admin\InvestmentPackageController;
 
 
 Route::get('/', function () {
@@ -68,6 +69,7 @@ Route::prefix('user')->middleware('user')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/m_plans', [HomeController::class, 'mPlans'])->name('m.plans');
     Route::post('/m_plans', [HomeController::class, 'store'])->name('trade.store');
+    Route::get('/my_plans', [HomeController::class, 'myPlans'])->name('my.plans');
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
     Route::post('/profile/update', [HomeController::class, 'updateProfile'])->name('profile.update');
     Route::get('/account_details', [HomeController::class, 'accountDetails'])->name('account.details');
@@ -246,5 +248,6 @@ Route::prefix('admin')->group(function () {
 
         Route::resource('plans', PlanController::class);
         Route::resource('wallets', WalletDetailController::class);
+        Route::resource('investment-packages', InvestmentPackageController::class);
     });
 });

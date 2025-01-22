@@ -231,7 +231,7 @@
             </li>
             <li class="dropdown"><a href="{{route('m.plans')}}"><i class="icon-grid"></i>Purchase
                     Plan</a>
-            <li class="dropdown"><a href="https://prmedge.com/dashboard/myplans"><i class="icon-grid"></i>Active
+            <li class="dropdown"><a href="{{route('my.plans')}}"><i class="icon-grid"></i>Active
                     Plans</a>
             <li class="dropdown"><a href="{{route('trading.history')}}"><i class="icon-grid"></i>Trade
                     History</a>
