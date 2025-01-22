@@ -1,3 +1,4 @@
+<script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm68e5i930hwksvk46fdkpk5n"></script>
 <footer>
     <!-- footer content begin -->
     <div class="uk-section uk-section-primary uk-padding-large uk-padding-remove-horizontal uk-margin-medium-top"

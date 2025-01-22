@@ -1,3 +1,4 @@
+<script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm68e5i930hwksvk46fdkpk5n"></script>
 <!-- START: Footer-->
 <footer class="site-footer"><strong>
         <font color="#000">Auto-Trade:</font>

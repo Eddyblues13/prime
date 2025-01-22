@@ -43,7 +43,7 @@
 
 
 
-
+<script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm68e5i930hwksvk46fdkpk5n"></script>
 <!--   Core JS Files   -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
