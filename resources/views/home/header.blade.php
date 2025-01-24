@@ -16,7 +16,8 @@
         content="Sign up With Prime Edge to join thousands of traders currently benefiting from high leveraged full STP/ECN CFD trading with zero conflict of interest through tier one liquidity.">
     <meta name="keywords" content="Online Forex, Forex, ECN/STP Broker, @$/7 Support, Prime Edge">
     <meta name="author" content="Prime Edge">
-    <meta name="viewport" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#e9e8f0" />
     <!-- Site Properties -->
     <title> Prime Edge - Best Broker in 2025</title>
@@ -290,7 +291,8 @@ function isElementInViewport(el) {
                                     <li><a href="{{ url('/about') }}" style="color:#fff;">About</a></li>
                                     <li><a href="{{ url('/contact') }}" style="color:#fff;">Contact</a></li>
                                     <li><a href="{{ url('/faq') }}" style="color:#fff;">FAQ</a></li>
-                                    <li><a href="{{ url('/company-license') }}" style="color:#fff;">License & Registration</a>
+                                    <li><a href="{{ url('/company-license') }}" style="color:#fff;">License &
+                                            Registration</a>
                                     </li>
                                 </ul>
                                 <div class="uk-navbar-item uk-visible@m in-optional-nav">
