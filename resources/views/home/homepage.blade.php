@@ -23,7 +23,7 @@
                                     <p class="uk-text-lead uk-visible@m" style="color:#fff;">Trade Cryptocurrencies,
                                         Stock Indices, Commodities and Forex from a single account</p>
                                     <div class="in-slideshow-button">
-                                        <a href="login.html"
+                                        <a href="{{ route('login') }}"
                                             class="uk-button uk-button-primary cha uk-border-rounded">Login
                                             Account</a>
                                         <a href="{{ route('register') }}"
