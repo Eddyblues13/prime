@@ -449,10 +449,10 @@
                                                     <td>
                                                         If you have any questions or need assistance with the
                                                         registration process, please don't hesitate to ask at
-                                                        <a href='mailto:support@astracointrading.com'
+                                                        <a href='mailto:support@prmedge.com'
                                                             style='color: blue; font-size: 20px; font-family: ' Hind
                                                             Siliguri', Calibri, Sans-serif; font-weight:
-                                                            400;'>support@astracointrading.com</a>
+                                                            400;'>support@prmedge.com</a>
                                                     </td>
                                                 </tr>
                                             </table>

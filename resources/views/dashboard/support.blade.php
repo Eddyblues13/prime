@@ -35,7 +35,7 @@
 
 
                             <h4 class="text-dark">For inquiries, suggestions or complains. Mail us at</h4>
-                            <h5 class="text-dark mt-3">support@astracointrading.com
+                            <h5 class="text-dark mt-3">support@prmedge.com
                         </div>
                     </div>
                 </div>
