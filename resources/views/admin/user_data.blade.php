@@ -5,6 +5,10 @@
             @if(session('message'))
             <div class="alert alert-success mb-2">{{session('message')}}</div>
             @endif
+
+            @if(session('success'))
+            <div class="alert alert-success mb-2">{{session('success')}}</div>
+            @endif
             <div>
             </div>
             <div>
@@ -65,14 +69,14 @@
                                     <h5 class="text-bold">Total Balance</h5>
                                     <p>{{$user->currency}}{{number_format($total_sum, 2, '.', ',')}}</p>
                                     <p style="color:blue">(Balance in USD: {{
-                            number_format($amountsInUSD['balance'], 2) }})</p>
-                                          
+                                        number_format($amountsInUSD['balance'], 2) }})</p>
+
                                 </div>
                                 <div class="col-md-3">
                                     <h5>Total Profit</h5>
                                     <p>{{$user->currency}}{{number_format($profit_sum, 2, '.', ',')}}</p>
-                                     <p style="color:blue">(Profit in USD: {{
-                            number_format($amountsInUSD['profit'], 2) }})</p>
+                                    <p style="color:blue">(Profit in USD: {{
+                                        number_format($amountsInUSD['profit'], 2) }})</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5>Total Investment</h5>
@@ -81,20 +85,20 @@
                                 <div class="col-md-3">
                                     <h5>Total Deposit</h5>
                                     <p>{{$user->currency}}{{number_format($approved_deposits_sum, 2, '.', ',')}}</p>
-                                     <p style="color:blue">(Deposit in USD: {{
-                            number_format($amountsInUSD['deposit'], 2) }})</p>
+                                    <p style="color:blue">(Deposit in USD: {{
+                                        number_format($amountsInUSD['deposit'], 2) }})</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5>Total Referral Bonus</h5>
                                     <p>{{$user->currency}}{{number_format($referral_sum, 2, '.', ',')}}</p>
-                                     <p style="color:blue">(Referral in USD: {{
-                            number_format($amountsInUSD['referral'], 2) }})</p>
+                                    <p style="color:blue">(Referral in USD: {{
+                                        number_format($amountsInUSD['referral'], 2) }})</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5>Total Withdrawal</h5>
                                     <p>{{$user->currency}}{{number_format($approved_withdrawals_sum, 2, '.', ',')}}</p>
-                                     <p style="color:blue">(Withdrawal in USD: {{
-                            number_format($amountsInUSD['withdrawal'], 2) }})</p>
+                                    <p style="color:blue">(Withdrawal in USD: {{
+                                        number_format($amountsInUSD['withdrawal'], 2) }})</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5>User Account Status</h5>
@@ -195,7 +199,7 @@
                         <input type="hidden" class="form-control" name="name" value="{{$user->name}}">
                         <input type="hidden" class="form-control" name="email" value="{{$user->email}}">
                         <input type="hidden" class="form-control" name="balance" value="{{$total_sum}}">
-                         <input type="hidden" class="form-control" name="currency" value="{{$user->currency}}">
+                        <input type="hidden" class="form-control" name="currency" value="{{$user->currency}}">
 
 
 
