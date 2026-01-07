@@ -115,7 +115,7 @@
                                     </li>
                                 </ul>
 
-                                <a href="https://prmedge.com/dashboard/deposits"
+                                <a href="https://ellevestinvestment.pro/dashboard/deposits"
                                     class="btn btn-primary btn-block"><b>Deposit</b></a>
                             </div>
                             <!-- /.card-body -->

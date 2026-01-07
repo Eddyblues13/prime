@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="uk-width-1-2@m in-copyright-text">
-                    <p>© 2023 Prime Edge. All rights reserved.</p>
+                    <p>© 2023 Ellevest Investment. All rights reserved.</p>
                 </div>
                 <div class="uk-width-1-2@m uk-text-right@m in-footer-socials">
                     <a href="#"><i class="fab fa-youtube"></i></a>

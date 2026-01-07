@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Prime Edge | User panel</title>
+    <title>Ellevest Investment | User panel</title>
     <link rel="shortcut icon" href="{{asset('dist/images/favicon.ico')}}" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -237,9 +237,9 @@
                     History</a>
                 <!--- <div> 
                         <ul>
-                            <li><a href="https://prmedge.com/dashboard/mplans"><i class="icon-loop"></i> Activate Package</a></li>
-                            <li><a href="https://prmedge.com/dashboard/myplans"><i class="icon-eye"></i> Current Package</a></li>
-                            <li><a href="https://prmedge.com/dashboard/tradinghistory"><i class="icon-compass"></i> Transaction ROI</a></li>                        
+                            <li><a href="https://ellevestinvestment.pro/dashboard/mplans"><i class="icon-loop"></i> Activate Package</a></li>
+                            <li><a href="https://ellevestinvestment.pro/dashboard/myplans"><i class="icon-eye"></i> Current Package</a></li>
+                            <li><a href="https://ellevestinvestment.pro/dashboard/tradinghistory"><i class="icon-compass"></i> Transaction ROI</a></li>                        
                         </ul> 
                     </div>-->
 

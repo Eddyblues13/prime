@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="ialsmxvxbFVMvehWybzdppDZtGxGJ4kODeqmi07p">
-    <title>Prime Edge | User Dashboard</title>
+    <title>Ellevest Investment | User Dashboard</title>
     <link rel="icon" href="{{asset('user/account/storage/app/public/photos/uPYDzhfavicon.png1677339254')}}"
         type="image/png" />
     <link rel="icon" href="{{ asset('account/cloud/uploads/favicon.png')}}" type="image/png" />
@@ -111,7 +111,7 @@
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
                     <a href="{{route('admin.home')}}" class="logo" style="font-size: 27px; color:#fff;">
-                        Prime Edge
+                        Ellevest Investment
                     </a>
                     <button class="ml-auto navbar-toggler sidenav-toggler" type="button" data-toggle="collapse"
                         data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">

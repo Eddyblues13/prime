@@ -29,7 +29,7 @@
                             <p>REFERENCE NO.</p>
                             <h6>31000201469839</h6>
                             <p>COMPANY</p>
-                            <h6>Prime EDGE Financial LLC</h6>
+                            <h6>Ellevest Investment Financial LLC</h6>
                             <p><a href="https://www.fincen.gov" target="_blank">https://www.fincen.gov</a></p>
                         </div>
                     </div>

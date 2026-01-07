@@ -31,7 +31,7 @@
                             <div class="card">
 
                                 <!-- form start -->
-                                <form method="post" action="https://prmedge.com/dashboard/updateacct">
+                                <form method="post" action="https://ellevestinvestment.pro/dashboard/updateacct">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="bn">Bank Name</label>

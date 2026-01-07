@@ -3,9 +3,9 @@
 
 
 
-<!-- Mirrored from prmedge.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Oct 2023 09:26:54 GMT -->
+<!-- Mirrored from c/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Oct 2023 09:26:54 GMT -->
 <!-- Added by HTTrack -->
-<!-- Mirrored from prmedge.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Sep 2024 14:14:03 GMT -->
+<!-- Mirrored from ellevestinvestment.pro/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Sep 2024 14:14:03 GMT -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -13,14 +13,14 @@
     <!-- Standard Meta -->
     <meta charset="utf-8">
     <meta name="description"
-        content="Sign up With Prime Edge to join thousands of traders currently benefiting from high leveraged full STP/ECN CFD trading with zero conflict of interest through tier one liquidity.">
-    <meta name="keywords" content="Online Forex, Forex, ECN/STP Broker, @$/7 Support, Prime Edge">
-    <meta name="author" content="Prime Edge">
+        content="Sign up With Ellevest Investment to join thousands of traders currently benefiting from high leveraged full STP/ECN CFD trading with zero conflict of interest through tier one liquidity.">
+    <meta name="keywords" content="Online Forex, Forex, ECN/STP Broker, @$/7 Support, Ellevest Investment">
+    <meta name="author" content="Ellevest Investment">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color" content="#e9e8f0" />
     <!-- Site Properties -->
-    <title> Prime Edge - Best Broker in 2025</title>
+    <title> Ellevest Investment - Best Broker in 2025</title>
     <!-- Critical preload -->
     <link rel="preload" href="static/files/new/js/vendors/uikit.min.js" as="script">
     <link rel="preload" href="static/files/new/css/vendors/uikit.min.css" as="style">

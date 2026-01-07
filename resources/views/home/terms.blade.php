@@ -7,11 +7,11 @@
                 <div class="uk-card uk-card-large uk-card-default in-card-paper">
                     <div class="uk-card-body" style="background-color:#dbdbdb;">
                         <h2>Terms of use</h2>
-                        <p>These rules are official and the public offer of Prime Edge, acting in accordance
+                        <p>These rules are official and the public offer of Ellevest Investment, acting in accordance
                             with the
                             Company, on the one hand, and the individual investor. This is equivalent to the conclusion
                             of the Agreement in accordance with international law. These rules shall enter into force on
-                            the date of registration of the Investor on the website of the program Prime Edge
+                            the date of registration of the Investor on the website of the program Ellevest Investment
                             and his
                             acceptance of the terms and conditions. If you disagree with these terms and conditions or
                             any part of these terms and conditions, you must not use this website.</p>
@@ -20,7 +20,7 @@
                         <p><strong>Eligibility</strong><br>
                             Any individual or company from any country may open an account on the website. You must be
                             at least 18 years of age to use this website. You agree that all information,
-                            communications, materials coming from Prime Edge are unsolicited and must be kept
+                            communications, materials coming from Ellevest Investment are unsolicited and must be kept
                             private,
                             confidential and protected from any disclosure. Moreover, the information, communications
                             and materials contained herein are not to be regarded as an offer, nor a solicitation for
@@ -41,7 +41,7 @@
                             suffer through the use of your password by others. Each Investor can register only one
                             personal account, re-registration is not allowed. In case of multiple registrations, the
                             Company reserves the right to disable all accounts to ascertain the circumstances. Each
-                            deposit is considered to be a private transaction between Prime Edge and its
+                            deposit is considered to be a private transaction between Ellevest Investment and its
                             Member. Members
                             perform all financial transactions solely at their own discretion and their own risk. The
                             Investor personally decides whether or not to invest and how much to invest. <br>All

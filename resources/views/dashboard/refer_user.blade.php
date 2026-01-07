@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="btn-group mb-2">
-                            Referral Link - <font color="red"><u>https://prmedge.com/ref/922</u></font>
+                            Referral Link - <font color="red"><u>https://ellevestinvestment.pro/ref/922</u></font>
                         </div>
 
                         <div class="table-responsive">

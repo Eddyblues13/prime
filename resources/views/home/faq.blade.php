@@ -88,7 +88,7 @@
                                 <a class="uk-accordion-title" href="#">How can I change my e-mail address or
                                     password?</a>
                                 <div class="uk-accordion-content">
-                                    <p>Log into your Prime Edge account and click on the "Account
+                                    <p>Log into your Ellevest Investment account and click on the "Account
                                         Information". You can
                                         change your e-mail address and password there.</p>
                                 </div>

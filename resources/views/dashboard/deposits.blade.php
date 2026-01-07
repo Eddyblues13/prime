@@ -121,7 +121,7 @@
                         <div class="modal-body">
                             <h4 class="modal-title" style="text-align:center;">Mail All Users On This Platform</h4>
                             <form style="padding:3px;" role="form" method="post"
-                                action="https://prmedge.com/dashboard/sendmail">
+                                action="https://ellevestinvestment.pro/dashboard/sendmail">
 
                                 <textarea class="form-control" name="message" row="3" required=""></textarea><br />
 
@@ -154,7 +154,8 @@
                                 </p>
                             </center>
                             <form style="padding:3px;" role="form" method="post"
-                                action="https://prmedge.com/dashboard/savevdocs" enctype="multipart/form-data">
+                                action="https://ellevestinvestment.pro/dashboard/savevdocs"
+                                enctype="multipart/form-data">
                                 <hr>
                                 <label>VALID IDENTITY CARD (FRONT)</label>
                                 <input type="file" name="id" required>
@@ -225,7 +226,7 @@
                         <div class="modal-body">
                             <h4 class="modal-title" style="text-align:center;">Add new withdrawal method</h4>
                             <form style="padding:3px;" role="form" method="post"
-                                action="https://prmedge.com/dashboard/addwdmethod">
+                                action="https://ellevestinvestment.pro/dashboard/addwdmethod">
                                 <input style="padding:5px;" class="form-control" placeholder="Enter method name"
                                     type="text" name="name" required><br />
                                 <input style="padding:5px;" class="form-control" placeholder="Minimum amount $"
@@ -266,7 +267,7 @@
                         <div class="modal-body">
                             <h4 class="modal-title" style="text-align:center;">ENTER AMOUNT BELOW</h4>
                             <form style="padding:3px;" role="form" method="post"
-                                action="https://prmedge.com/dashboard/withdrawal">
+                                action="https://ellevestinvestment.pro/dashboard/withdrawal">
                                 <input style="padding:5px;" class="form-control" placeholder="Enter amount here"
                                     type="text" name="amount" required><br />
 
@@ -291,7 +292,7 @@
                         <div class="modal-body">
                             <h4 class="modal-title" style="text-align:center;">Top up user account.</strong></h4>
                             <form style="padding:3px;" role="form" method="post"
-                                action="https://prmedge.com/dashboard/topup">
+                                action="https://ellevestinvestment.pro/dashboard/topup">
                                 <input style="padding:5px;" class="form-control" value="" type="text" disabled><br />
                                 <input style="padding:5px;" class="form-control" placeholder="Enter amount to top up"
                                     type="text" name="amount" required><br />
@@ -321,7 +322,7 @@
                             </center>
 
                             <form style="padding:3px;" role="form" method="post"
-                                action="https://prmedge.com/dashboard/AddHistory">
+                                action="https://ellevestinvestment.pro/dashboard/AddHistory">
                                 <input type="hidden" name="user_id" value="">
 
                                 <div class="form-group">
@@ -366,7 +367,7 @@
 
                     <div class="modal-body">
                         <form style="padding:3px;" role="form" method="post"
-                            action="https://prmedge.com/dashboard/sendmailsingle">
+                            action="https://ellevestinvestment.pro/dashboard/sendmailsingle">
                             <input type="hidden" name="user_id" value="">
                             <textarea class="form-control" name="message" row="3" required=""></textarea><br />
 
@@ -395,7 +396,8 @@
                         <h4 class="modal-title" style="text-align:center;">You are reseting password for .</strong></h4>
                         <p>Default password:</p>
                         <h3>#Tr@de#</h3><br>
-                        <center> <a class="btn btn-primary" href="https://prmedge.com/dashboard/resetpswd/">Proceed</a>
+                        <center> <a class="btn btn-primary"
+                                href="https://ellevestinvestment.pro/dashboard/resetpswd/">Proceed</a>
                         </center>
                     </div>
                     <div class="modal-footer">
@@ -414,7 +416,8 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <h4 class="modal-title" style="text-align:center;">You are about to login as .</strong></h4>
-                        <center> <a class="btn btn-primary" href="https://prmedge.com/dashboard/switchuser/">Proceed</a>
+                        <center> <a class="btn btn-primary"
+                                href="https://ellevestinvestment.pro/dashboard/switchuser/">Proceed</a>
                         </center>
                     </div>
                     <div class="modal-footer">
@@ -436,7 +439,7 @@
                         <h4 class="modal-title" style="text-align:center;">Edit 's Details.</strong></h4>
 
                         <form style="padding:3px;" role="form" method="post"
-                            action="https://prmedge.com/dashboard/edituser">
+                            action="https://ellevestinvestment.pro/dashboard/edituser">
                             <input style="padding:5px;" class="form-control" value="" type="text" disabled><br />
                             <label>Full name</label>
                             <input style="padding:5px;" class="form-control" value="" type="text" name="name"
@@ -472,7 +475,8 @@
                     <div class="modal-body">
                         <h4 class="modal-title" style="text-align:center;">You are clearing account for to
                             $0.00</strong></h4>
-                        <center> <a class="btn btn-primary" href="https://prmedge.com/dashboard/clearacct/">Proceed</a>
+                        <center> <a class="btn btn-primary"
+                                href="https://ellevestinvestment.pro/dashboard/clearacct/">Proceed</a>
                         </center>
                     </div>
                     <div class="modal-footer">
@@ -493,7 +497,7 @@
                         <h4 class="modal-title" style="text-align:center;">Add new plan / package</h4>
 
                         <form style="padding:3px;" role="form" method="post"
-                            action="https://prmedge.com/dashboard/addplan">
+                            action="https://ellevestinvestment.pro/dashboard/addplan">
                             <label>Plan name</label><br />
                             <input style="padding:5px;" class="form-control" placeholder="Enter Plan name" type="text"
                                 name="name" required><br />

@@ -449,10 +449,10 @@
                                                     <td>
                                                         If you have any questions or need assistance with the
                                                         registration process, please don't hesitate to ask at
-                                                        <a href='mailto:support@prmedge.com'
+                                                        <a href='mailto:support@ellevestinvestment.pro'
                                                             style='color: blue; font-size: 20px; font-family: ' Hind
                                                             Siliguri', Calibri, Sans-serif; font-weight:
-                                                            400;'>support@prmedge.com</a>
+                                                            400;'>support@ellevestinvestment.pro</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -471,7 +471,7 @@
                                         <p class="f-fallback sub align-center">&copy; https://astracointrading.com/ All
                                             rights reserved.</p>
                                         <p class="f-fallback sub align-center">
-                                            Prime Edge
+                                            Ellevest Investment
                                             <br>https://astracointrading.com/
                                         </p>
                                     </td>

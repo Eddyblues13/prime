@@ -307,7 +307,7 @@
                                 class="fas fa-money-bill-wave fa-2x in-icon-wrap large primary-color uk-margin-right"></i>
                         </div>
                         <div class="uk-width-expand">
-                            <h3 style="color:#fff;">Why trade with Prime Edge?</h3>
+                            <h3 style="color:#fff;">Why trade with Ellevest Investment?</h3>
                             <p>The best rated ASIC broker in the industry
                                 Dedicated account manager & personalised service
                                 Regulated by the Australian Securities and Investment Commission
@@ -390,7 +390,7 @@
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1 uk-text-center uk-margin-medium-bottom">
-                    <h1 style="color:#fff;">Prime Edge Legal Docs</h1>
+                    <h1 style="color:#fff;">Ellevest Investment Legal Docs</h1>
                 </div>
                 <div class="uk-grid-divider uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
                     <div>
@@ -603,7 +603,7 @@
                                 </li>
                             </ul>
                             <div class="uk-card uk-card-default uk-card-small uk-card-body uk-border-rounded uk-margin-medium-top">
-                                <p class="uk-text-small">For general inquiries please contact <a class="uk-text-lowercase uk-link" href="mailto:">support@prmedge.com</a></p>
+                                <p class="uk-text-small">For general inquiries please contact <a class="uk-text-lowercase uk-link" href="mailto:">support@ellevestinvestment.pro</a></p>
                             </div>
                         </div>
                     </div>
