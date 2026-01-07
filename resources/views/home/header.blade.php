@@ -20,7 +20,7 @@
 
     <meta name="theme-color" content="#e9e8f0" />
     <!-- Site Properties -->
-    <title> Ellevest Investment - Best Broker in 2025</title>
+    <title> Ellevest Investment - Best Broker in 2026</title>
     <!-- Critical preload -->
     <link rel="preload" href="static/files/new/js/vendors/uikit.min.js" as="script">
     <link rel="preload" href="static/files/new/css/vendors/uikit.min.css" as="style">
